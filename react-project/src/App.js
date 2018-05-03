@@ -56,18 +56,19 @@ class App extends Component {
   }
 
   render() {
-    const style = {
-      backgroundColor: 'green',
-      font: 'inherit',
-      border: '1px solid blue',
-      padding: '8px',
-      margin: '2px',
-      cursor: 'pointer',
-      // ':hover': {
-      //   backgroundColor: 'lightgreen',
-      //   color: 'black'
-      // }
-    }
+    let btnClass= null;
+    // const style = {
+    //   backgroundColor: 'green',
+    //   font: 'inherit',
+    //   border: '1px solid blue',
+    //   padding: '8px',
+    //   margin: '2px',
+    //   cursor: 'pointer',
+    //   // ':hover': {
+    //   //   backgroundColor: 'lightgreen',
+    //   //   color: 'black'
+    //   // }
+    // }
 
     let persons = null;
 
@@ -84,13 +85,10 @@ class App extends Component {
           })}
         </div> 
       );
+
+      btnClass = classes.Red;
     }
 
-    style.backgroundColor = 'red';
-    style[':hover'] = {
-      backgroundColor: 'salmon',
-      color: 'white'
-    }
     let assignedClasses = [];
 
     if(this.state.persons.length <= 2) {
@@ -106,7 +104,7 @@ class App extends Component {
           <h1> Hi I am React App </h1>
           <p className={assignedClasses.join(' ')}>This is working</p>
           <button 
-            style={style} 
+          className={btnClass}
             onClick={this.togglePersonHandler}>
             Switch Name
           </button>
