@@ -10,5 +10,5 @@ const persons = (props) =>
             changed={(event) => props.changed(event, person.id)} />
     });
 
-    export default persons;
+export default persons;
 
