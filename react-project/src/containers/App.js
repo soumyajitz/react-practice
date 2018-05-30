@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 // import  { StyleRoot } from 'radium';
 import classes from './App.css';
 import Persons from '../components/Persons/Persons';
 import Cockpit from '../components/Cockpit/Cockpit';
 
-class App extends Component {
+class App extends PureComponent {
   constructor(props) {
     super(props);
     console.log("[App.js] constructor",props);
@@ -17,6 +17,13 @@ class App extends Component {
   componentDidMount() {
     console.log("[App.js] component did mount");
   }
+
+  // shouldComponentUpdate( nextProps, nextState) {
+  //   console.log('[Update app.js] Inside shouldComponentUpdate', nextProps);
+  //   return nextProps.persons !== this.props.persons 
+  //         || nextProps.changed !== this.props.changed
+  //         || nextProps.clicked !==this.props.clicked;
+  // }
 
   state = {
     persons: [
@@ -87,6 +94,7 @@ class App extends Component {
 
     return (
         <div className={classes.App}>
+        <button onClick={()=> {this.setState({showPersons: true})}}>Show Persons</button>
           <Cockpit 
             showPersons={this.state.showPersons}
             persons={this.state.persons} 
