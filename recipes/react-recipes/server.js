@@ -3,7 +3,7 @@ const express = require('express');
 // Schemas
 const Recipe = require('./models/Recipe');
 const User = require('./models/User');
-
+const cors = require("cors");
 const bodyParser = require('body-parser');
 const {typeDefs} = require('./schema');
 const {resolvers} = require('./resolvers');
@@ -36,7 +36,12 @@ app.use('/graphiql', graphiqlExpress({
     endpointURL: '/graphql'
 }))
 
+const corsOptions = {
+    origin: 'http://localhost:3000',
+    credentials: true    
+}
 
+app.use(cors(corsOptions));
 //Connect Schemas with GraphQL
 app.use('/graphql',
     bodyParser.json(),
