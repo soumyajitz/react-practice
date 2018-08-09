@@ -16,6 +16,16 @@ query {
 /*Recipe Mutations*/
 
 /*User Queries */
+export const GET_CURRENT_USER =gql`
+query {
+    getCurrentUser {
+        username
+        joinDate
+        email
+    }
+}
+`
+
 
 /* User Mutations */
 export const SIGNUP_USER = gql`

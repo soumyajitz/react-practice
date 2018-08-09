@@ -32,6 +32,7 @@ type Mutation {
 
 type Query {
     getAllRecipes: [Recipe]
+    getCurrentUser: User
 }
 
 `;
